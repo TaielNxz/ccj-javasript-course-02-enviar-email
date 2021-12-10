@@ -2,6 +2,7 @@
                 Variables
 ========================================= */
 const btnEnviar  = document.querySelector('#enviar');
+const btnReset   = document.querySelector('#resetBtn');
 const formulario = document.querySelector('#enviar-mail');
 
 // Campos del formulario
@@ -28,6 +29,9 @@ function eventListeners() {
 
     // Enviar email
     btnEnviar.addEventListener('click', enviarEmail);
+    
+    // Resetear Formulario
+    btnReset.addEventListener('click', resetearFormulario);
 };
 
 
@@ -147,7 +151,7 @@ function enviarEmail(e) {
     // Evitar que se redireccione la página
     e.preventDefault();
 
-    // deshabilitar boton de 'enviar'
+    // Deshabilitar boton de 'enviar'
     iniciarApp();
 
     // Mostrar yn spinner
@@ -174,4 +178,15 @@ function enviarEmail(e) {
             formulario.reset();
         }, 3000);
     }, 3000);
+};
+
+function resetearFormulario(e) {
+    // Evitar que se redireccione la página
+    e.preventDefault();
+
+    // Limpiar campos del formulario
+    formulario.reset();
+
+    // Deshabilitar boton de 'enviar' y eliminar estilos
+    iniciarApp();
 };
